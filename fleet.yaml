@@ -1,0 +1,19 @@
+# The default namespace to be applied to resources. This field is not used to
+# enforce or lock down the deployment to a specific namespace, but instead
+# provide the default value of the namespace field if one is not specified
+# in the manifests.
+defaultNamespace: kafka
+
+helm:
+  # Use a custom location for the Helm chart. This can refer to any go-getter URL.
+  # This allows one to download charts from most any location.  Also know that
+  # go-getter URL supports adding a digest to validate the download. If repo
+  # is set below this field is the name of the chart to lookup
+  repo: https://gitlab.ctic-dev.com/SM/kafka-helm-chart.git
+  branch: kafka-brownbag
+  # The release name to use. If empty a generated release name will be used
+  releaseName: hipic-kafka
+   # The version of the chart or semver constraint of the chart to find. If a constraint
+  # is specified it is evaluated each time git changes.
+  paths:
+  - helm-chart
